@@ -240,12 +240,13 @@ Go Premium
     width: 360px;
     margin-right: 60px;
     float: left;
+    margin-top: 125px;
 }
 
 .go-premium {
     width: 360px;
     float: left;
-    margin-top: 125px;
+    margin-top: 150px;
 }
 
 .call-to-action {
@@ -273,4 +274,87 @@ Go Premium
     border-color: #0072ae;
     color: #0072ae;
     background: none;
+}
+
+/****************
+Nav
+****************/
+
+nav {
+    background-color: #fff;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+}
+
+nav img {
+    width: 160px;
+}
+
+nav figure {
+    position: absolute;
+    top: -20px;
+    left: 50px;
+}
+
+.primary-nav {
+    float: right;
+}
+
+.primary-nav > li {
+    float: left;
+}
+
+.primary-nav > li > a {
+    float: left;
+    padding: 25px 0;
+    width: 150px;
+    border-left: 1px solid #ada791;
+}
+
+.primary-nav > li:first-child > a {
+    border-left: none;
+}
+
+nav li a {
+    font-family: Arial, Arial, Helvetica, sans-serif;
+    color: #766e65;
+    text-transform: uppercase;
+    font-size: 15px;
+    text-align: center;
+    transition: 0.15s background-color linear;
+}
+
+nav li a:focus,
+nav li a:hover,
+nav li a:active {
+    background-color: #eb2428;
+    color: #fff;
+}
+
+/****************
+Drop Down Menu
+****************/
+
+.has-submenu ul {
+    position: absolute;
+    top: 70px;
+    background-color: #fff;
+    border-bottom: 1px solid #ada791;
+    border-left: 1px solid #ada791;
+    border-right: 1px solid #ada791;
+    width: 150px;
+    border-radius: 0 0 15px 15px;
+    overflow: hidden;
+    display: none;
+}
+
+.has-submenu:hover ul {
+    display: block;
+}
+
+.has-submenu a {
+    display: block;
+    padding: 20px 0;
 }
