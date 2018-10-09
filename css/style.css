@@ -99,7 +99,7 @@ Global
 
 body {
   background-color: #dcdcdc;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Merriweather', Georgia, 'Times New Roman', Times, serif, serif;
   font-weight: 100;
   font-size: 16px; 
 }
@@ -111,9 +111,12 @@ a {
 
 h1 {
   font-weight: 700;
-  font-size: 80px;
+  font-size: 100px;
   color: #0072ae;
-  margin-bottom: 10px; 
+  margin-bottom: 10px;
+  font-family: 'Maven Pro', Arial, sans-serif;
+  font-style: normal; 
+  font-weight: bold;
 }
 
 h2 {
@@ -121,11 +124,14 @@ h2 {
   margin-bottom: 10px;
   color: #eb2428;
   font-weight: 700; 
+  font-family: 'Maven Pro', Arial, sans-serif;
+  font-style: italic; 
 }
 
 p {
   line-height: 1.6;
   margin-bottom: 20px;
+  font-size: 16px;
 }
 
 .float-right {
@@ -283,6 +289,13 @@ Go Premium
     background: none;
 }
 
+.reasons {
+  color: #333;
+  font-size: 12px;
+  margin-top: 15px;
+  text-align: center;
+}
+
 /****************
 Nav
 ****************/
@@ -345,15 +358,6 @@ nav li a:hover,
 nav li a.active {
     background-color: #eb2428;
     color: #fff;
-}
-
-.mobile-menu-icon {
-    background: url('../images/mobile-menu-icon.png') 0 0 no-repeat;
-    width: 30px;
-    height: 26px;
-    float: right;
-    margin: 10px 15px 10px 0;
-    cursor: pointer;
 }
 
 /****************
@@ -434,6 +438,11 @@ Media Queries
         width: 100%;
         max-height: 0;
         overflow: hidden;
+        transition: all ease-in-out .35s;
+    }
+
+    .primary-nav.active {
+        max-height: 360px;
     }
 
     .primary-nav > li {
@@ -466,6 +475,19 @@ Media Queries
 
     .has-submenu ul:hover {
         animation: none;
+    }
+
+    .mobile-menu-icon {
+        background: url('../images/mobile-menu-icon.png') 0 0 no-repeat;
+        width: 30px;
+        height: 26px;
+        float: right;
+        margin: 10px 15px 10px 0;
+        cursor: pointer;
+    }
+    
+    .mobile-menu-icon.open {
+        background-image: url('../images/mobile-menu-close-icon.png');
     }
 }
 
