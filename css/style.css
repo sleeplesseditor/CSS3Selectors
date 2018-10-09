@@ -72,6 +72,14 @@ img, iframe, video, object {
   max-width: 100%; 
 }
 
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
 /***************
 Global
 ***************/
@@ -84,10 +92,9 @@ Global
 }
 
 .wrapper {
-  width: 85%;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto; 
+  width: 90%;
+  max-width: 960px;
+  margin: 0 auto;
 }
 
 body {
@@ -130,19 +137,20 @@ Interior Pages
 ****************/
 
 .intro-content  {
-  width: 100%;
-  padding-bottom: 80px;
+   margin-top: 125px;
+   padding-bottom: 80px;
 }
 
 .content-block {
-  padding: 50px 0;
+   padding: 50px 0;
 }
 
 .content-block .figure {
-  margin: 30px;
-  float: left;
-  border: 10px solid #fff;
-  overflow: hidden;
+   margin: 3.125% 3.125%; /* 30/960 */
+   float: left;
+   border: 15px solid #fff;
+   overflow: hidden;
+   width: 23.958%;/* 230/960 */
 }
 
 .content-block .figure img {
@@ -186,17 +194,17 @@ Interior Pages
 ****************/
 
 .secondary-section {
-    margin-bottom: 40px;
+    margin-bottom: 50px;
 }
 
 .column {
     float: left;
-    width: 300px;
-    margin-left: 30px;
+    width: 31.25%; /* 300/960 */
+    margin-left: 3.125%; /* 30/960 */
 }
 
 .column:first-child {
-    margin-left: 0px;
+    margin-left: 0;
 }
 
 /****************
@@ -237,14 +245,13 @@ Go Premium
 ****************/
 
 .intro-content {
-    width: 360px;
-    margin-right: 60px;
+    width: 62.5%; /* 600/960px */
+    margin-right: 6.25%; /* 60/960px */
     float: left;
-    margin-top: 125px;
 }
 
 .go-premium {
-    width: 360px;
+    width: 31.25%; /* 300/960px */
     float: left;
     margin-top: 150px;
 }
@@ -286,16 +293,23 @@ nav {
     left: 0;
     right: 0;
     top: 0;
-}
-
-nav img {
-    width: 160px;
+    z-index: 1;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, .1);
 }
 
 nav figure {
     position: absolute;
     top: -20px;
     left: 50px;
+    animation: crazyShark 1s ease;
+    width: 160px;
+}
+
+@keyframes crazyShark {
+    0% {transform: translate(90%, 70%); opacity: 0;} 
+    33% {transform: translate(40%, 20%);}
+    66% {transform: translate(10%, 50%);}
+    100% {transform: translate(0%); opacity: 1;}
 }
 
 .primary-nav {
@@ -328,9 +342,18 @@ nav li a {
 
 nav li a:focus,
 nav li a:hover,
-nav li a:active {
+nav li a.active {
     background-color: #eb2428;
     color: #fff;
+}
+
+.mobile-menu-icon {
+    background: url('../images/mobile-menu-icon.png') 0 0 no-repeat;
+    width: 30px;
+    height: 26px;
+    float: right;
+    margin: 10px 15px 10px 0;
+    cursor: pointer;
 }
 
 /****************
@@ -348,13 +371,102 @@ Drop Down Menu
     border-radius: 0 0 15px 15px;
     overflow: hidden;
     display: none;
+    z-index: 5;
 }
 
 .has-submenu:hover ul {
     display: block;
+    animation-name: slideDown;
+    animation-duration: .35s;
+    animation-timing-function: ease;
+}
+
+@keyframes slideDown {
+    0% {transform: translateY(-100%); opacity: 0;}; 
+    90% {transform: translateY(10%)};
+    100% {transform: translateY(0%); opacity: 1;};
 }
 
 .has-submenu a {
     display: block;
     padding: 20px 0;
+    position: relative;
+    z-index: 10;
 }
+
+/***************
+Media Queries
+***************/
+@media screen and (max-width: 1023px) {
+    .intro-content {
+        width: auto;
+        float: none;
+        padding-bottom: 0;
+        margin-bottom: 30px;
+      }
+      .go-premium {
+        width: auto;
+        float: none;
+        margin-top: 0;
+      }
+      .column {
+        float: none;
+        width: auto;
+        padding: 0 50px;
+      }
+      .column figure {
+        margin: 0 auto;
+        width: 100%;
+        max-width: 250px;
+      }
+      .column h2 {
+        text-align: center;
+      }
+}
+
+/* close media query */
+@media screen and (max-width: 900px) {
+    nav {
+        position: static;
+    }
+
+    .primary-nav {
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+    }
+
+    .primary-nav > li {
+        float: right;
+        width: 100%;
+    }
+
+    .primary-nav li a {
+        text-align: right;
+        padding: 15px 25px 15px 0;
+        width: 100%;
+        border-bottom: 1px solid #e7e7e7;
+        border-left: none; 
+        font-size: 13px; 
+    }
+
+    nav figure {
+        width: 100px;
+        top: 0;
+        left: 20px;
+    }
+
+    .has-submenu ul {
+        position: static;
+        display: block;
+        border: none;
+        border-radius: 0;
+        width: 100%;
+    }
+
+    .has-submenu ul:hover {
+        animation: none;
+    }
+}
+
+/* close media query */
