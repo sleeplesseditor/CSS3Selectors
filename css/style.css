@@ -399,6 +399,52 @@ Drop Down Menu
 }
 
 /***************
+Footer
+***************/
+footer {
+    background: #fff url('../images/seaweed.jpg') repeat-x 0 0;
+    padding: 122px 0;
+    font-size: 14px;
+    line-height: 1.7; 
+  }
+  footer ul {
+    float: left;
+    margin: 0 100px 50px 0; 
+  }
+  footer .list-heading {
+    text-transform: uppercase;
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 17px; 
+    font-family: 'Maven Pro', Arial, Helvetica, sans-serif;
+  }
+  footer a {
+    color: #333;
+  }
+  
+  footer .icon {
+    margin-right: 10px;
+    font-size: 30px;
+    transition: .25s color ease-in-out;
+  }
+  
+  footer a:hover .icon {
+    color: #f00;
+  } 
+  footer li, footer p {
+    color: #4D4D4D; 
+    line-height: 30px;
+  }
+  footer li {
+    margin-bottom: 10px;
+  }
+  .legal-copy {
+    text-align: right;
+    font-size: 10px;
+  }
+
+
+/***************
 Media Queries
 ***************/
 @media screen and (max-width: 1023px) {
@@ -488,6 +534,10 @@ Media Queries
     
     .mobile-menu-icon.open {
         background-image: url('../images/mobile-menu-close-icon.png');
+    }
+
+    h1 {
+        font-size: 65px;
     }
 }
 
